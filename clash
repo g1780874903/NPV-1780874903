@@ -5,13 +5,12 @@ mode: Rule
 log-level: info
 external-controller: :9090
 proxies:
-  - {name: 韩国ARM, server: seol.onepercent.tk, port: 443, type: vmess, uuid: 039d61be-9bdf-44d4-b842-05c42f7189f1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: seol.onepercent.tk, network: ws, ws-opts: {path: /abcvws, headers: {Host: seol.onepercent.tk}}, udp: true}
-  - {name: 韩国AMD, server: seol1.onepercent.tk, port: 443, type: vmess, uuid: cf957877-6c52-4933-b27a-3764f4cfc81d, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: seol1.onepercent.tk, network: ws, ws-opts: {path: /abcvws, headers: {Host: seol1.onepercent.tk}}, udp: true}
-  - {name: 美国, server: xyz.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 4a3722bf-0278-4f92-8cad-2b8cfd23eef6, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: xyz.fengmanlouyou.xyz, network: ws, ws-opts: {path: /abcvws, headers: {Host: xyz.fengmanlouyou.xyz}}, udp: true}
-  - {name: 新加坡AMD, server: sinamd1.onepercent.gq, port: 443, type: vmess, uuid: f6f86308-9d54-42b0-aa04-0a380ae69e45, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: sinamd1.onepercent.gq, network: ws, ws-opts: {path: /abcvws, headers: {Host: sinamd1.onepercent.gq}}, udp: true}
-  - {name: 新加坡ARM, server: sin1.onepercent.tk, port: 443, type: vmess, uuid: 73946998-c215-443f-baff-0ac89eb8d5cd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: sin1.onepercent.tk, network: ws, ws-opts: {path: /abcvws, headers: {Host: sin1.onepercent.tk}}, udp: true}
-  - {name: 俄罗斯, server: abc.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 64d7088a-8aba-4361-80f8-8b66c1bb7cd7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: abc.fengmanlouyou.xyz, network: ws, ws-opts: {path: "/abcvws?ed=2048", headers: {Host: abc.fengmanlouyou.xyz}}, udp: true}
-  - {name: 土耳其, server: mn.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 1dd53424-15d6-4002-9758-3f8f44758c3b, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, servername: mn.fengmanlouyou.xyz, network: ws, ws-opts: {path: /abcvws, headers: {Host: mn.fengmanlouyou.xyz}}, udp: true}
+  - {name: 土耳其, server: mn.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 1dd53424-15d6-4002-9758-3f8f44758c3b, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /abcvws, headers: {Host: mn.fengmanlouyou.xyz}}, udp: true}
+  - {name: 首尔, server: seol.onepercent.tk, port: 443, type: vmess, uuid: 039d61be-9bdf-44d4-b842-05c42f7189f1, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /abcvws, headers: {Host: seol.onepercent.tk}}, udp: true}
+  - {name: 🇯🇵 日本, server: tokyo.onepercent.tk, port: 443, type: vmess, uuid: ffd9d8c9-9931-4db5-9358-6810dd6c8e29, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /abcvws, headers: {Host: tokyo.onepercent.tk}}, udp: true}
+  - {name: 美国, server: xyz.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 4a3722bf-0278-4f92-8cad-2b8cfd23eef6, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /abcvws, headers: {Host: xyz.fengmanlouyou.xyz}}, udp: true}
+  - {name: 俄罗斯, server: abc.fengmanlouyou.xyz, port: 443, type: vmess, uuid: 64d7088a-8aba-4361-80f8-8b66c1bb7cd7, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: "/abcvws?ed%3D2048", headers: {Host: abc.fengmanlouyou.xyz}}, udp: true}
+  - {name: 新加坡, server: sin1.onepercent.tk, port: 443, type: vmess, uuid: 73946998-c215-443f-baff-0ac89eb8d5cd, alterId: 0, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: {path: /abcvws, headers: {Host: sin1.onepercent.tk}}, udp: true}
 proxy-groups:
   - name: 🚀 节点选择
     type: select
@@ -30,39 +29,36 @@ proxy-groups:
   - name: 🚀 手动切换
     type: select
     proxies:
-      - 韩国ARM
-      - 韩国AMD
-      - 美国
-      - 新加坡AMD
-      - 新加坡ARM
-      - 俄罗斯
       - 土耳其
+      - 首尔
+      - 🇯🇵 日本
+      - 美国
+      - 俄罗斯
+      - 新加坡
   - name: ♻️ 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - 韩国ARM
-      - 韩国AMD
-      - 美国
-      - 新加坡AMD
-      - 新加坡ARM
-      - 俄罗斯
       - 土耳其
+      - 首尔
+      - 🇯🇵 日本
+      - 美国
+      - 俄罗斯
+      - 新加坡
   - name: 🔯 故障转移
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - 韩国ARM
-      - 韩国AMD
-      - 美国
-      - 新加坡AMD
-      - 新加坡ARM
-      - 俄罗斯
       - 土耳其
+      - 首尔
+      - 🇯🇵 日本
+      - 美国
+      - 俄罗斯
+      - 新加坡
   - name: 🔮 负载均衡
     type: load-balance
     strategy: consistent-hashing
@@ -70,13 +66,12 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - 韩国ARM
-      - 韩国AMD
-      - 美国
-      - 新加坡AMD
-      - 新加坡ARM
-      - 俄罗斯
       - 土耳其
+      - 首尔
+      - 🇯🇵 日本
+      - 美国
+      - 俄罗斯
+      - 新加坡
   - name: 📲 电报消息
     type: select
     proxies:
@@ -267,7 +262,6 @@ proxy-groups:
     interval: 300
     tolerance: 150
     proxies:
-      - 美国
       - DIRECT
   - name: 🇨🇳 台湾节点
     type: url-test
@@ -282,8 +276,6 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - 新加坡AMD
-      - 新加坡ARM
       - DIRECT
   - name: 🇰🇷 韩国节点
     type: url-test
@@ -291,18 +283,10 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - 韩国ARM
-      - 韩国AMD
       - DIRECT
   - name: 🎥 奈飞节点
     type: select
     proxies:
-      - 新加坡ARM
-      - 韩国ARM
-      - 韩国AMD
-      - 新加坡AMD
-      - 俄罗斯
-      - 土耳其
       - DIRECT
 rules:
  - DOMAIN-SUFFIX,acl4.ssr,🎯 全球直连
